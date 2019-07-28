@@ -1,0 +1,175 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>test2</title><meta name="generator" content="MATLAB 9.4"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2019-06-09"><meta name="DC.source" content="test2.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput">S = 9.5;
+
+<span class="comment">% &#33267;&#20110; &#21547;&#26410;&#30693;&#21442;&#25968;&#30340; &#25972;&#25968;&#35268;&#21010; &#22914;&#20309;&#27714;&#35299;&#36824;&#19981;&#30693;&#36947;</span>
+
+<span class="comment">% fmincon &#27714;&#35299;&#26410;&#30693;&#21442;&#25968;&#30340;&#38750;&#32447;&#24615;&#35268;&#21010;</span>
+
+t1 = 2;
+
+t2 = 3;
+
+t3 = 4;
+
+t4 = 5;
+
+n = 1:4;
+
+f = [t1*n t2*n t3*n t4*n];
+
+ic = [1:16];
+
+A =[1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0;
+    0 0 0 0 1 1 1 1 0 0 0 0 0 0 0 0;
+    0 0 0 0 0 0 0 0 1 1 1 1 0 0 0 0;
+    0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1;
+    1 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0;
+                                    ];
+<span class="comment">% &#27880;&#24847;</span>
+b =[1;1;0;1;1];  <span class="comment">% &#27492;&#24335;&#20915;&#23450;&#20102; s &#23567;&#38598;&#21512;&#20013;&#21253;&#21547;&#20102;&#21738;&#20123; player&#65288;&#36825;&#37324;&#26159; 1&#65292;4&#65289;</span>
+
+lb = zeros(16,1);
+
+ub = ones(16,1);
+
+[x fval flag] = intlinprog(f,ic,[],[],A,b,lb,ub)  <span class="comment">% flag &#20026;&#36864;&#20986;&#26631;&#24535;</span>
+
+<span class="comment">% [x, fval] = linprog(f,[],[],A,b,lb,ub)  % &#23545;&#20110; IPU &#38382;&#39064;&#25972;&#25968;&#35268;&#21010;&#30340;&#35299;&#31561;&#20110;&#32447;&#24615;&#35268;&#21010;&#30340;&#35299;</span>
+</pre><pre class="codeoutput">LP:                Optimal objective value is 15.000000.                                            
+
+
+Optimal solution found.
+
+Intlinprog stopped at the root node because the objective value is within a gap
+tolerance of the optimal value, options.AbsoluteGapTolerance = 0 (the default
+value). The intcon variables are integer within tolerance,
+options.IntegerTolerance = 1e-05 (the default value).
+
+x =
+     0
+     1
+     0
+     0
+     0
+     1
+     0
+     0
+     0
+     0
+     0
+     0
+     1
+     0
+     0
+     0
+fval =
+    15
+flag =
+     1
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+S = 9.5;
+
+% 至于 含未知参数的 整数规划 如何求解还不知道
+
+% fmincon 求解未知参数的非线性规划
+
+t1 = 2;
+ 
+t2 = 3;
+ 
+t3 = 4;
+
+t4 = 5;
+
+n = 1:4;
+
+f = [t1*n t2*n t3*n t4*n];
+
+ic = [1:16];
+
+A =[1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0;
+    0 0 0 0 1 1 1 1 0 0 0 0 0 0 0 0;
+    0 0 0 0 0 0 0 0 1 1 1 1 0 0 0 0;
+    0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1;
+    1 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0;
+                                    ];
+% 注意    
+b =[1;1;0;1;1];  % 此式决定了 s 小集合中包含了哪些 player（这里是 1，4）
+
+lb = zeros(16,1);
+
+ub = ones(16,1);
+
+[x fval flag] = intlinprog(f,ic,[],[],A,b,lb,ub)  % flag 为退出标志
+
+% [x, fval] = linprog(f,[],[],A,b,lb,ub)  % 对于 IPU 问题整数规划的解等于线性规划的解  
+##### SOURCE END #####
+--></body></html>
