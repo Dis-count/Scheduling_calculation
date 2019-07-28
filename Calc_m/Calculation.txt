@@ -1,0 +1,15 @@
+1. Give the setup cost. And we know that the setup cost should be large enough, or the coalition will not exist.
+
+2. Give the number of players n = 4. At first, we default the number n =4 , then we extend n to an arbitrary number.
+
+3. Change the time cost of each player respectively.
+
+4. Then Calculate the all coalition cost and calculate the subsidy and taxation.
+
+5. Find the unsatisfactory coalition set.
+
+6. Find the number of machine needed when having a tax and the property of new function. (Such as decreasing and difference.)
+
+
+
+
