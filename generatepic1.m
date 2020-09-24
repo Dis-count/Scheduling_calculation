@@ -32,7 +32,7 @@ end
 
     ylabel('Num of machines & Subsidy')
     
-    yyaxis right
+    yyaxis right    % plot the difference
     plot(x,theresult(1:k,3),'m-+')
 
     ylim([-100 80])
@@ -41,10 +41,10 @@ end
 
     ylabel('Subsidy minus Pricing')
     
-    % legend('Num of machines','Subsidy','Subsidy minus Pricing','Location','Best');
+    legend('Num of machines','Subsidy','Subsidy minus Pricing','Location','Best');
     
     hi = legend('Num of machines','Subsidy','Subsidy minus Pricing','Location','NorthEast' );
-    % title(num2str(an))
+    title(num2str(an))
     set(hi,'fontsize',8);
     % h = figure(1);
     
@@ -54,7 +54,7 @@ end
    % print(gcf, '-djpeg', pn)
     
 
-    print(gcf,'-djpeg',['Figures\Image2.jpg']);
+    print(gcf,'-djpeg',['Figures\Image1.jpg']);
 
 % imwrite(vectors,'test1.png')
 
